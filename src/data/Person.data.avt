@@ -1,0 +1,5 @@
+export class Person extends Aventus.Data implements Aventus.IData {
+    public id: number = 0;
+    public firstname: string = "";
+    public lastname: string = "";
+}

@@ -1,0 +1,5 @@
+<div class="title">{{ this.options.title }}</div>
+<div class="description">{{ this.options.description }}</div>
+<div class="buttons">
+    <button @press="close">{{ this.options.btnTxt }}</button>
+</div>

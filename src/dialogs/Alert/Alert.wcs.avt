@@ -1,0 +1,14 @@
+:host {
+	.title {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 12px;
+    }
+    .description {
+        
+    }
+    .buttons {
+        display: flex;
+        justify-content: flex-end;
+    }
+}

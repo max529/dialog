@@ -1,0 +1,54 @@
+import { DialogService } from "../../lib/DialogService.lib.avt";
+import { Dialog } from "../Dialog/Dialog.wcl.avt";
+
+export type AlertOption = {
+    title: string,
+    description: string;
+    btnTxt: string;
+};
+export class Alert extends Dialog<void> implements Aventus.DefaultComponent {
+
+    //#region static
+    public static async show(options: Partial<AlertOption>) {
+        const el = new Alert();
+        el.options = { ...this.defaultOptions(), ...options };
+        return await DialogService.open(el);
+    }
+    private static defaultOptions(): AlertOption {
+        return {
+            title: "",
+            description: "",
+            btnTxt: "ok"
+        };
+    }
+    //#endregion
+
+
+    //#region props
+
+    //#endregion
+
+
+    //#region variables
+    @Watch()
+    public options!: AlertOption;
+
+    //#endregion
+
+
+    //#region constructor
+
+    //#endregion
+
+
+    //#region methods
+
+    /**
+     * 
+     */
+    protected close() {
+        this.resolve();
+    }
+    //#endregion
+
+}

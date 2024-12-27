@@ -1,0 +1,5 @@
+<div class="hider">
+    <div class="popup">
+        <slot></slot>
+    </div>
+</div>

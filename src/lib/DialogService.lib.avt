@@ -1,0 +1,12 @@
+import type { Dialog } from "../dialogs/Dialog/Dialog.wcl.avt";
+
+export class DialogService {
+    public static async open<T>(dialog: Dialog<T>) {
+        return new Promise<T>((resolve) => {
+            dialog.callback = resolve;
+            // add logic to bind keyboard shortcut
+            // for example you can add "when escape is pressed force close to null"
+            document.body.appendChild(dialog);
+        });
+    }
+}

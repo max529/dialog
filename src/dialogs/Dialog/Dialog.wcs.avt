@@ -1,0 +1,17 @@
+:host {
+	.hider {
+		align-items: center;
+		background-color: rgba(0, 0, 0, 0.2);
+		display: flex;
+		inset: 0;
+		justify-content: center;
+		position: fixed;
+
+        .popup {
+            background-color: white;
+            padding: 32px;
+            box-shadow: 0 0 5px black;
+            border-radius: 5px;
+        }
+	}
+}

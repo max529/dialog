@@ -1,0 +1,12 @@
+<div class="field">
+    <label for="firstname">Firstname</label>
+    <input name="firstname" @bind="this.person.firstname"/>
+</div>
+<div class="field">
+    <label for="lastname">Lastname</label>
+    <input name="lastname" @bind="this.person.lastname"/>
+</div>
+<div class="btns">
+    <button @press="cancel">Cancel</button>
+    <button @press="save">Save</button>
+</div>

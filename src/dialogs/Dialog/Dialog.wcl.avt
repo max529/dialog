@@ -1,0 +1,32 @@
+export abstract class Dialog<T> extends Aventus.WebComponent implements Aventus.DefaultComponent {
+
+    //#region static
+
+    //#endregion
+
+
+    //#region props
+
+    //#endregion
+
+
+    //#region variables
+    public callback?: (value: T | null) => void;
+    //#endregion
+
+
+    //#region constructor
+
+    //#endregion
+
+
+    //#region methods
+    protected resolve(value: T | null) {
+        this.remove();
+        if(this.callback) {
+            this.callback(value);
+        }
+    }
+    //#endregion
+
+}

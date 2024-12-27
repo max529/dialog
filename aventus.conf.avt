@@ -1,0 +1,22 @@
+{
+	"module": "dialog",
+	"componentPrefix": "av",
+	"build": [
+		{
+			"name": "Main",
+			"src": [
+				"./src/*"
+			],
+			"compile": [{
+				"output": "./dist/dialog.js"
+			}]
+		}
+	],
+	"static": [
+		{
+			"name": "Main",
+			"input": "./static",
+			"output": "./dist"
+		}
+	]
+}

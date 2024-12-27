@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dialog Aventus</title>
+    <script src="/dialog.js"></script>
+    <style>
+        html {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+    </style>
+    <script>
+        async function external() {
+            dialog.Alert.show({
+                title: "External",
+                description: "Je suis appelé depuis l'exterieur"
+            })
+        }
+    </script>
+</head>
+
+<body>
+    <av-app></av-app>
+</body>
+
+</html>

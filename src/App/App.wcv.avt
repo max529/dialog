@@ -1,0 +1,4 @@
+<button @press="showAlert">Alert</button>
+<button @press="newPerson">New person</button>
+<button @press="updatePerson">Update {{ this.minimax.firstname }} {{ this.minimax.lastname }}</button>
+<button @press="externalCall">External call</button>

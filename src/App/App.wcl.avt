@@ -1,0 +1,77 @@
+import { Person } from "../data/Person.data.avt";
+import { Alert } from "../dialogs/Alert/Alert.wcl.avt";
+import { CustomDialog } from "../dialogs/CustomDialog/CustomDialog.wcl.avt";
+
+export class App extends Aventus.WebComponent implements Aventus.DefaultComponent {
+
+    //#region static
+
+    //#endregion
+
+
+    //#region props
+
+    //#endregion
+
+
+    //#region variables
+    @Watch()
+    private minimax: Person;
+    //#endregion
+
+
+    //#region constructor
+    public constructor() {
+        super();
+        this.minimax = new Person();
+        this.minimax.firstname = "mini";
+        this.minimax.lastname = "max";
+    }
+    //#endregion
+
+
+    //#region methods
+
+    /**
+     * 
+     */
+    protected async showAlert() {
+        await Alert.show({
+            title: "Test alert",
+            description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Earum eligendi, perspiciatis consectetur cupiditate adipisci harum dolores dicta reiciendis accusantium ipsam cum beatae amet excepturi animi dignissimos magni temporibus veritatis perferendis."
+        });
+    }
+
+    /**
+     * 
+     */
+    protected async newPerson() {
+        let result = await CustomDialog.show();
+        if(result) {
+            alert("You created a person " + result.firstname + " " + result.lastname);
+        }
+        else {
+            alert("You cancel");
+        }
+    }
+    /**
+     * 
+     */
+    protected async updatePerson() {
+        let result = await CustomDialog.show(this.minimax);
+        if(result) {
+            this.minimax = result;
+        }
+    }
+
+
+    /**
+     * 
+     */
+    protected externalCall() {
+        const w = window as any;
+        w.external();
+    }
+    //#endregion
+
+}

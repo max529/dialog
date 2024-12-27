@@ -1,0 +1,59 @@
+import { Person } from "../../data/Person.data.avt";
+import { DialogService } from "../../lib/DialogService.lib.avt";
+import { Dialog } from "../Dialog/Dialog.wcl.avt";
+
+export class CustomDialog extends Dialog<Person> implements Aventus.DefaultComponent {
+
+    //#region static
+    public static async show(person?: Person) {
+        const el = new CustomDialog();
+        if(!person) {
+            person = this.defaultPerson();
+        }
+        else {
+            person = person.clone();
+        }
+        el.person = person;
+        return await DialogService.open(el);
+    }
+
+    private static defaultPerson(): Person {
+        const person = new Person();
+        return person;
+    }
+    //#endregion
+
+
+    //#region props
+
+    //#endregion
+
+
+    //#region variables
+    @Watch()
+    public person!: Person;
+    //#endregion
+
+
+    //#region constructor
+
+    //#endregion
+
+
+    //#region methods
+
+    /**
+     * 
+     */
+    protected cancel() {
+        this.resolve(null);
+    }
+    /**
+     * 
+     */
+    protected save() {
+        this.resolve(this.person);
+    }
+    //#endregion
+
+}
