@@ -9,10 +9,10 @@ export type AlertOption = {
 export class Alert extends Dialog<void> implements Aventus.DefaultComponent {
 
     //#region static
-    public static async show(options: Partial<AlertOption>) {
+    public static async show(options: Partial<AlertOption>, parent?: HTMLElement) {
         const el = new Alert();
         el.options = { ...this.defaultOptions(), ...options };
-        return await DialogService.open(el);
+        return await DialogService.open(el, parent);
     }
     private static defaultOptions(): AlertOption {
         return {

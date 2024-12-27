@@ -4943,10 +4943,13 @@ Dialog.Namespace=`dialog`;
 _.Dialog=Dialog;
 
 let DialogService=class DialogService {
-    static async open(dialog) {
+    static async open(dialog, parent) {
         return new Promise((resolve) => {
             dialog.callback = resolve;
-            document.body.appendChild(dialog);
+            if (!parent) {
+                parent = document.body;
+            }
+            parent.appendChild(dialog);
         });
     }
 }
@@ -5049,7 +5052,7 @@ const CustomDialog = class CustomDialog extends Dialog {
             this.person.lastname = v;
         }
     }
-    static async show(person) {
+    static async show(person, parent) {
         const el = new CustomDialog();
         if (!person) {
             person = this.defaultPerson();
@@ -5058,7 +5061,7 @@ const CustomDialog = class CustomDialog extends Dialog {
             person = person.clone();
         }
         el.person = person;
-        return await DialogService.open(el);
+        return await DialogService.open(el, parent);
     }
     static defaultPerson() {
         const person = new Person();
@@ -5132,10 +5135,10 @@ const Alert = class Alert extends Dialog {
     __a701efb1db1c5435e6dcf44536429c6dmethod2() {
         return this.options.btnTxt;
     }
-    static async show(options) {
+    static async show(options, parent) {
         const el = new Alert();
         el.options = { ...this.defaultOptions(), ...options };
-        return await DialogService.open(el);
+        return await DialogService.open(el, parent);
     }
     static defaultOptions() {
         return {

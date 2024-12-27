@@ -5,7 +5,7 @@ import { Dialog } from "../Dialog/Dialog.wcl.avt";
 export class CustomDialog extends Dialog<Person> implements Aventus.DefaultComponent {
 
     //#region static
-    public static async show(person?: Person) {
+    public static async show(person?: Person, parent?: HTMLElement) {
         const el = new CustomDialog();
         if(!person) {
             person = this.defaultPerson();
@@ -14,7 +14,7 @@ export class CustomDialog extends Dialog<Person> implements Aventus.DefaultCompo
             person = person.clone();
         }
         el.person = person;
-        return await DialogService.open(el);
+        return await DialogService.open(el, parent);
     }
 
     private static defaultPerson(): Person {
